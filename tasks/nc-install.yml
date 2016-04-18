@@ -1,0 +1,5 @@
+---
+# install nc on Amazon and Ubuntu
+
+- name: install nc on Amazon and Ubuntu
+  yum: name=nc state=present

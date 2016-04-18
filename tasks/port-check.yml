@@ -1,0 +1,3 @@
+---
+-  name: check for port {{port}} connectivity to {{host}}
+   command:  nmap -Pn -p{{port}} {{host}}

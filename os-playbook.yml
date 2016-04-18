@@ -1,0 +1,25 @@
+---
+- hosts: all
+  remote_user: ec2-user
+  tasks:
+    - name: make those that work part of ec2 group
+      group_by: key=ec2
+
+- hosts: all
+  remote_user: ubuntu
+  tasks:
+    - name: group by ubuntu user
+      group_by: key=ubuntu_os
+
+- hosts: ubuntu_os
+  remote_user: ubuntu
+  tasks:
+    - name: ping test
+      ping:
+
+- hosts: ec2
+  remote_user: ec2-user
+  tasks:
+    - name: ping test
+      ping:
+

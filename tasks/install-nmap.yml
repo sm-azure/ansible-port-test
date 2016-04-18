@@ -1,0 +1,7 @@
+---
+-  name: install nmap
+   yum: name=nmap state=present
+   when: ansible_distribution == "Amazon" or ansible_distribution == "RedHat" 
+-  name: install nmap
+   apt: name=nmap state=present
+   when: ansible_distribution == "Ubuntu"

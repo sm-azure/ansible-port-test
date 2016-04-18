@@ -1,0 +1,14 @@
+---
+- hosts: linux
+  remote_user: ec2-user
+  tasks:
+   - include: tasks/install-nmap.yml 
+     become: yes
+   - include: tasks/port-check.yml host=google.com port=80
+   - include: tasks/port-check.yml host=google.com port=443
+- hosts: ubuntu
+  remote_user: ubuntu
+  tasks:
+   - include: tasks/install-nmap.yml 
+     become: yes
+   - include: tasks/port-check.yml host=google.com port=80
