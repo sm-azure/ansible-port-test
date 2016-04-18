@@ -1,5 +1,6 @@
+# Alternative workaround for dynamic infrastructure
 ---
-- hosts: linux
+- hosts: redhat
   remote_user: ec2-user
   tasks:
    - include: tasks/install-nmap.yml 

@@ -1,3 +1,5 @@
+# Sample code from ansible github issue tracker to group machines based on login user names. 
+# Does not work because machines are ignored in subsequent plays when connection cannot be established.
 ---
 - hosts: all
   remote_user: ec2-user

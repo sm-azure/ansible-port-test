@@ -1,0 +1,5 @@
+# Hosts file
+[redhat]
+# add hosts based on redhat os
+[ubuntu]
+# add hosts based on ubuntu
