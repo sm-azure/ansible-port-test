@@ -1,3 +1,10 @@
 ---
+#-  name: display what you are checking
+#   debug: msg="Checking for connectivity to port {{port}} and host {{host}}"
 -  name: check for port {{port}} connectivity to {{host}}
-   command:  nmap -Pn -p{{port}} {{host}}
+   command:  bash -c "nmap -p {{port}} {{host}} | grep open | wc -l"
+   register: result
+-  name: check the result of port open
+   fail: msg="Could not connect to port {{port}} on {{host}}!!"
+   when: result.stdout != "1"
+   ignore_errors: yes

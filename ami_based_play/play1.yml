@@ -4,17 +4,25 @@
   tasks:
     - name: check connection
       ping:
+    - include: ../tasks/install-nmap.yml 
+      become: yes
+    - include: ../tasks/port-check.yml host=google.com port=80  
+    - include: ../tasks/port-check.yml host=google.com port=443
 
 - hosts: ami_8b8c57f8
   remote_user: ec2-user
   tasks:
     - name: check connection
       ping:
+    - include: ../tasks/install-nmap.yml 
+      become: yes
 
 - hosts: ami_b0ac25c3
   remote_user: ec2-user
   tasks:
     - name: check connection
       ping:
+    - include: ../tasks/install-nmap.yml 
+      become: yes
 
      
