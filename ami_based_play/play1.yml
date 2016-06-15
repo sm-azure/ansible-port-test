@@ -27,5 +27,6 @@
 
 - hosts: ami_29eb7e5a
   tasks:
-    - name: check ping
-      win_ping: 
+    - include: ../tasks/win-port-check.yml host=google.com port=80
+    - include: ../tasks/win-port-check.yml host=google.com port=25
+    - include: ../tasks/win-port-check.yml host=google.com port=443

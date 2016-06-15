@@ -1,0 +1,5 @@
+---
+- hosts: ami_29eb7e5a
+  tasks:
+    - include: ../tasks/win-port-check.yml host=google.com port=80
+    - include: ../tasks/win-port-check.yml host=google.com port=25

@@ -1,0 +1,10 @@
+---
+#-  name: display what you are checking
+#   debug: msg="Checking for connectivity to port {{port}} and host {{host}}"
+-  name: check for port {{port}} connectivity to {{host}}
+   raw: powershell.exe -command {(Test-NetConnection {{host}} -port {{port}}).TCPTestSucceeded}
+   register: result
+-  name: check the result of port open
+   fail: msg= "Could not connect to port {{port}} on {{host}}!!"
+   when: result.stdout != "True\r\n"
+   ignore_errors: yes
